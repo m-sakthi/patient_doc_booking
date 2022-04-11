@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_patient: false
+  is_doctor: false
+  is_admin: false
+  first_name: MyString
+  last_name: MyString
+
+two:
+  is_patient: false
+  is_doctor: false
+  is_admin: false
+  first_name: MyString
+  last_name: MyString
