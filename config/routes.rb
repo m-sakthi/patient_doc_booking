@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   root :to => 'messages#index'
 
-  resources :messages
+  resources :messages do
+    member do
+      patch :mark_as_read
+    end
+  end
 end

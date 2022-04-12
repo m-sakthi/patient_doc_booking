@@ -6,3 +6,10 @@ doctor_message1:
   outbox_id: 2
   inbox_id: 1
   read: false
+
+patient_message1:
+  id: 2
+  body: First sample message from patient
+  outbox_id: 1
+  inbox_id: 2
+  read: false

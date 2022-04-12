@@ -3,10 +3,12 @@
 patient:
   id: 1
   user_id: 1
+  unread_count: 1
 
 doctor:
   id: 2
   user_id: 2
+  unread_count: 1
 
 admin:
   id: 3

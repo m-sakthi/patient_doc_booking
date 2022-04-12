@@ -18,6 +18,8 @@ class MessagesController < ApplicationController
       else
         params_hash.merge!(inbox_id: User.admin.first.inbox.id)
       end
+    else
+      params_hash.merge!(inbox_id: User.patient.first.inbox.id)
     end
 
     @message = Message.new(params_hash)
@@ -28,6 +30,13 @@ class MessagesController < ApplicationController
       # More errors can be handled
       redirect_to '/422.html'
     end
+  end
+
+  def mark_as_read
+    @message = Message.find(params[:id])
+    @message.update(read: true)
+
+    redirect_to '/'
   end
 
   private

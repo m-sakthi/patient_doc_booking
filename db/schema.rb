@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_095337) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_12_133200) do
   create_table "inboxes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "unread_count", default: 0
     t.index ["user_id"], name: "index_inboxes_on_user_id"
   end
 
@@ -45,8 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_095337) do
 
   create_table "users", force: :cascade do |t|
     t.boolean "is_patient", default: true
-    t.boolean "is_doctor", default: true
-    t.boolean "is_admin", default: true
+    t.boolean "is_doctor", default: false
+    t.boolean "is_admin", default: false
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", null: false
