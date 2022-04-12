@@ -57,4 +57,21 @@ class MessagesControllerTest < ActionDispatch::IntegrationTest
     assert_equal outboxes(:patient).id, patient_message.outbox_id
     assert_equal inbox.reload.unread_count, 0
   end
+
+  test "triggering lost prescription should send message to admin" do
+    inbox = inboxes(:admin)
+
+    assert_equal inbox.unread_count, 0
+    assert_difference "Message.count", 1 do
+      assert_difference "Payment.count", 1 do
+        post "/messages/lost_prescription"
+      end
+    end
+    assert_response :redirect
+
+    message = Message.last
+    assert_equal inbox.id, message.inbox_id
+    assert_equal outboxes(:patient).id, message.outbox_id
+    assert_equal inbox.reload.unread_count, 1
+  end
 end

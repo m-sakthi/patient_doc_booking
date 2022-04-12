@@ -32,6 +32,23 @@ class MessagesController < ApplicationController
     end
   end
 
+  def lost_prescription
+    current_user = User.current
+    @message = Message.new(
+      body: Message::PATIENT_LOST_PRESCREPTION,
+      outbox_id: current_user.outbox.id,
+      inbox_id: User.admin.first.inbox.id
+    )
+
+    if @message.save!
+      @message.debit_payment_from_patient(current_user)
+      redirect_to '/messages'
+    else
+      # More errors can be handled
+      redirect_to '/422.html'
+    end
+  end
+
   def mark_as_read
     @message = Message.find(params[:id])
     @message.update(read: true)

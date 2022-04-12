@@ -6,7 +6,7 @@
   <div class="card-body">
     <p class="card-text"><%= @message.body %></p>
     <%= link_to "Reply", new_message_path, class: "btn btn-primary" %>
-    <a href="#" class="btn btn-primary">I've lost my prescription</a>
+    <%= link_to "I've lost my prescription", lost_prescription_messages_path, data: { "turbo-method": :post }, class: "btn btn-primary" %>
     <% if !@message.read %>
       <%= link_to "Mark as read", mark_as_read_message_path(id: @message.id), data: { "turbo-method": :patch }, class: "btn btn-primary" %>
     <% end %>

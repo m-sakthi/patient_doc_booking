@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     member do
       patch :mark_as_read
     end
+    collection do
+      post :lost_prescription
+    end
   end
 end
