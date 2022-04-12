@@ -1,13 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  body: MyText
-  outbox: one
-  inbox: one
-  read: false
-
-two:
-  body: MyText
-  outbox: two
-  inbox: two
+doctor_message1:
+  id: 1
+  body: First sample message from doctor
+  outbox_id: 2
+  inbox_id: 1
   read: false

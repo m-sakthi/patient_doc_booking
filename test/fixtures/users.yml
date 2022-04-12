@@ -1,15 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  is_patient: false
+patient:
+  id: 1
+  is_patient: true
   is_doctor: false
   is_admin: false
-  first_name: MyString
-  last_name: MyString
+  first_name: Jack
+  last_name: Jones
 
-two:
+doctor:
+  id: 2
+  is_patient: false
+  is_doctor: true
+  is_admin: false
+  first_name: Rose
+  last_name: Walter
+
+admin:
+  id: 3
   is_patient: false
   is_doctor: false
-  is_admin: false
-  first_name: MyString
-  last_name: MyString
+  is_admin: true
+  first_name: Victor
+  last_name: Henry
